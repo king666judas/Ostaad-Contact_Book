@@ -9,6 +9,7 @@ contact_book/
 ├── add_contact.py       # Add contact functionality
 ├── search_contact.py    # Search contact functionality
 ├── remove_contact.py    # Remove contact functionality
+├── edit_contact.py      # Edit contact functionality
 ├── validate_input.py    # Input validation logic
 ├── utils.py             # File handling utilities
 ├── contacts.csv         # Contact data

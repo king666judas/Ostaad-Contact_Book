@@ -1,3 +1,11 @@
+from add_contact import add_contact
+from load_contacts import load_contacts
+from remove_contact import remove_contact
+from save_contacts import save_contacts
+from search_contact import search_contact
+from view_contacts import view_contacts
+
+
 def main_menu():
     contacts = load_contacts()  # Load contacts from file on startup
     while True:
@@ -24,3 +32,6 @@ def main_menu():
             break
         else:
             print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main_menu()

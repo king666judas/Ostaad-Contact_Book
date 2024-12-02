@@ -16,6 +16,11 @@ def load_contacts():
 
 def save_contacts(contacts):
     """Save contacts to the CSV file."""
-    with open(CONTACTS_FILE, "w") as file:
-        for contact in contacts:
-            file.write(contact + "\n")
+    try:
+        # Open the file in write mode and overwrite its contents
+        with open(CONTACTS_FILE, "w") as file:
+            for contact in contacts:
+                file.write(contact + "\n")  # Write each contact on a new line
+        print("Contacts saved successfully!")
+    except Exception as e:
+        print(f"An error occurred while saving contacts: {e}")

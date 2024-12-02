@@ -19,62 +19,44 @@ def edit_contact(contacts):
             is_valid, error_message = validate_input("phone", phone)
             if not is_valid:
                 print(f"Error: {error_message}")
-                return
+                continue
 
-            # Find the contact with the provided phone number
+            # Find the contact by phone number
             contact_found = None
-            for contact in contacts:
+            for index, contact in enumerate(contacts):
                 contact_fields = contact.split("|")
-                existing_name, existing_email, existing_phone, existing_name, existing_email, = contact_fields
-
-                if existing_phone == phone:
-                    contact_found = contact_fields
+                if contact_fields[2] == phone:  # Match by phone number
+                    contact_found = (index, contact_fields)
                     break
 
             if contact_found:
-                print(f"Contact found: {contact_found[0]} ({contact_found[2]})")
-                print(f"Current details: Name: {contact_found[0]}, Email: {contact_found[1]}, Address: {contact_found[3]}")
+                index, fields = contact_found
+                name, email, phone, address, photo = fields
 
-                # Allow the user to edit fields
-                while True:
-                    name = input(f"Enter new Name (current: {contact_found[0]}): ").strip() or contact_found[0]
-                    is_valid, error_message = validate_input("name", name)
+                print(f"Editing Contact: {name} ({phone})")
+                print("Leave fields blank to keep current values.")
+
+                # Get updated fields
+                new_name = input(f"New Name (current: {name}): ").strip() or name
+                new_email = input(f"New Email (current: {email}): ").strip() or email
+                new_phone = input(f"New Phone (current: {phone}): ").strip() or phone
+                new_address = input(f"New Address (current: {address}): ").strip() or address
+
+                # Validate the inputs
+                for field_name, field_value in [("name", new_name), ("email", new_email), ("phone", new_phone)]:
+                    is_valid, error_message = validate_input(field_name, field_value)
                     if not is_valid:
                         print(f"Error: {error_message}")
-                        continue
-                    break
+                        return
 
-                while True:
-                    email = input(f"Enter new Email (current: {contact_found[1]}): ").strip() or contact_found[1]
-                    is_valid, error_message = validate_input("email", email)
-                    if not is_valid:
-                        print(f"Error: {error_message}")
-                        continue
-                    break
+                # Update the contact
+                updated_contact = f"{new_name}|{new_email}|{new_phone}|{new_address}|{photo}"
+                contacts[index] = updated_contact
 
-                while True:
-                    phone = input(f"Enter new Phone (current: {contact_found[2]}): ").strip() or contact_found[2]
-                    is_valid, error_message = validate_input("phone", phone)
-                    if not is_valid:
-                        print(f"Error: {error_message}")
-                        continue
-                    break
-
-                address = input(f"Enter new Address (current: {contact_found[3]}): ").strip() or contact_found[3]
-
-                updated_contact = f"{name}|{email}|{phone}|{address}|{contact_found[4]}"
-
-                # Replace the old contact with the updated one
-                for i, contact in enumerate(contacts):
-                    if contact.split("|")[2] == phone:  # Using phone number as identifier
-                        contacts[i] = updated_contact
-                        break
-
-                print(f"Contact for {name} updated successfully!")
-                
-                save_contacts(contacts)  # Save updated contacts to the file
-                break
+                # Save the updated list to the file
+                save_contacts(contacts)
+                print("Contact updated successfully!")
             else:
-                print("Contact with the provided phone number not found.")
+                print("No contact found with that phone number.")
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Try again.")

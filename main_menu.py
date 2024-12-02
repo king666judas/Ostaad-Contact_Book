@@ -1,7 +1,7 @@
 from add_contact import add_contact
 from remove_contact import remove_contact
 from utilities import save_contacts, load_contacts
-from search_contact import search_contact
+from search_contacts import search_contacts
 from view_contacts import view_contacts
 from edit_contact import edit_contact
 
@@ -13,7 +13,7 @@ def main_menu():
         print("1. Add Contact")
         print("2. View Contacts")
         print("3. Remove Contact")
-        print("4. Search Contact")
+        print("4. Search Contacts")
         print("5. Edit Contact")
         print("6. Exit")
         choice = input("Choose an option: ")
@@ -27,7 +27,7 @@ def main_menu():
             remove_contact(contacts)
             save_contacts(contacts)  # Save after removal
         elif choice == '4':
-            search_contact(contacts)
+            search_contacts(contacts)
         elif choice == '5':
             edit_contact(contacts)
             save_contacts(contacts)  # Edit after addition

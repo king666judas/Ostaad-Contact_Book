@@ -18,7 +18,6 @@ def add_contact(contacts):
             return  # Exit without adding the contact
 
     # Add new contact
-    
     contact = f"{name}|{email}|{phone}|{address}|NoPhoto"
     contacts.append(contact)
     print(f"Contact for '{name}' added successfully!")

@@ -1,7 +1,6 @@
 from add_contact import add_contact
-from load_contacts import load_contacts
 from remove_contact import remove_contact
-from save_contacts import save_contacts
+from utilities import save_contacts, load_contacts
 from search_contact import search_contact
 from view_contacts import view_contacts
 

@@ -5,7 +5,7 @@
    designed to manage a user's contact list efficiently. It provides essential 
    features for adding, editing, searching, and removing contacts, while ensuring 
    data validation and persistence through file handling.
-   
+------------------------------------------------------------------------------------------------   
 Features
 
 -- Add Contacts:
@@ -57,8 +57,11 @@ Features
 -- Exit Program:
 
    Provides an option to terminate the program safely.
+
 ------------------------------------------------------------------------------------------------
+
 How It’s Written
+
 -- Modular Design:
 
    The program is divided into multiple Python files (modules), each responsible for a specific   
@@ -87,9 +90,13 @@ How It’s Written
 
    Inputs are validated → Processed for the desired operation → Data is updated 
    in the CSV file → Results are displayed.
+
 ------------------------------------------------------------------------------------------------
+
 Use Cases:
+
 -- Personal Contact Management: Keep track of family, friends, and professional contacts.
 -- Small Business: Maintain a contact list for customers, suppliers, and partners.
 -- Academic Projects: Serve as a base for learning Python programming concepts like modularity,       file handling, and validation.
+
 ------------------------------------------------------------------------------------------------

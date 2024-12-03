@@ -96,10 +96,10 @@ How It’s Written
 
 Use Cases:
 
--- Personal Contact Management: Keep track of family, friends, and professional contacts.
+   - Personal Contact Management: Keep track of family, friends, and professional contacts.
 
--- Small Business: Maintain a contact list for customers, suppliers, and partners.
+   - Small Business: Maintain a contact list for customers, suppliers, and partners.
 
--- Academic Projects: Serve as a base for learning Python programming concepts like modularity, file handling, and validation.
+   - Academic Projects: Serve as a base for learning Python programming concepts like modularity, file handling, and validation.
 
 ------------------------------------------------------------------------------------------------

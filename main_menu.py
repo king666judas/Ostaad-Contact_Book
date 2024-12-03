@@ -1,11 +1,16 @@
-from add_contact import add_contact
-from remove_contact import remove_contact
-from utilities import save_contacts, load_contacts
-from search_contacts import search_contacts
-from view_contacts import view_contacts
-from edit_contact import edit_contact
+# main_menu.py
+# Main entry point of the program.
 
+from contact_operations import add_contact, edit_contact, search_contacts, remove_contact
+from file_handler import save_contacts, load_contacts
+from utilities import view_contacts
 
+'''
+>> Main Menu:
+    > Displays the menu options to the user.
+    > Routes user choices to the corresponding functions (e.g., Add Contact, Edit Contact).
+    > Returns to the menu after completing operations or exits the program.
+'''
 def main_menu():
     contacts = load_contacts()  # Load contacts from file on startup
     while True:

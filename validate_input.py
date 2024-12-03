@@ -1,15 +1,16 @@
+# validate_input.py
+# Module for input validation.
+
+'''
+ >> Input Validation:
+    > Validates data types and formats:
+        Name:       Ensures input is a string.
+        Phone:      Ensures its numeric and unique.
+        Email:      Ensures it contains "@" and ".".
+    > Provides feedback on invalid inputs.
+'''
+
 def validate_input(input_type, value):
-    """
-    Validates input based on the type specified.
-    
-    Parameters:
-    - input_type (str): The type of input to validate ("name", "phone", "email", "address").
-    - value (str): The input value to validate.
-    
-    Returns:
-    - (bool, str): A tuple where the first value is True if valid, False otherwise, and 
-                   the second value is an error message if invalid.
-    """
     if input_type == "name":
         if all(char.isalpha() or char.isspace() for char in value):
             return True, ""

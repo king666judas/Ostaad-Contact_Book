@@ -1,26 +1,39 @@
-import os
+# utilities.py
+# Functions for displaying tables.
 
-# Define the path for the contacts file
-CONTACTS_FILE = os.path.join(os.path.dirname(__file__), "contacts.csv")
+'''
+>> Utilities:
+    > Formats and displays contact data in a structured table.
+    > Calculates column widths dynamically for clean presentation.
+'''
+def view_contacts(contacts):
+    """Display all contacts in a neatly formatted table."""
+    if not contacts:
+        print("\nNo contacts available to display.")
+        return
 
-def load_contacts():
-    """Load contacts from the CSV file."""
-    if not os.path.exists(CONTACTS_FILE):
-        # Create an empty contacts file if it doesn't exist
-        with open(CONTACTS_FILE, "w") as file:
-            file.write("")
-        return []
+    # Split contacts into fields for formatting
+    contact_data = [contact.split("|") for contact in contacts]
 
-    with open(CONTACTS_FILE, "r") as file:
-        return [line.strip() for line in file if line.strip()]
+    # Define headers
+    headers = ["Name", "Email", "Phone", "Address", "Photo"]
+    
+    # Calculate the maximum width for each column
+    column_widths = [len(header) for header in headers]
+    for contact in contact_data:
+        for i, field in enumerate(contact):
+            column_widths[i] = max(column_widths[i], len(field))
 
-def save_contacts(contacts):
-    """Save contacts to the CSV file."""
-    try:
-        # Open the file in write mode and overwrite its contents
-        with open(CONTACTS_FILE, "w") as file:
-            for contact in contacts:
-                file.write(contact + "\n")  # Write each contact on a new line
-        print("Contacts saved successfully!")
-    except Exception as e:
-        print(f"An error occurred while saving contacts: {e}")
+    # Create a row formatter based on column widths
+    row_format = " | ".join([f"{{:<{width}}}" for width in column_widths])
+
+    # Print the header row
+    print("\n" + "=" * (sum(column_widths) + len(column_widths) * 3 - 1))
+    print(row_format.format(*headers))
+    print("=" * (sum(column_widths) + len(column_widths) * 3 - 1))
+
+    # Print each contact
+    for contact in sorted(contact_data, key=lambda x: x[0].lower()):  # Sort by name
+        print(row_format.format(*contact))
+
+    print("=" * (sum(column_widths) + len(column_widths) * 3 - 1))

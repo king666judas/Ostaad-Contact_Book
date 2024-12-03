@@ -5,11 +5,84 @@ develop a Command Line Interface (CLI) project using Python for a Contact Book M
 Proposed program structure:
 
 contact_book/
-├── main.py              # Main entry point
-├── add_contact.py       # Add contact functionality
-├── search_contact.py    # Search contact functionality
-├── remove_contact.py    # Remove contact functionality
-├── edit_contact.py      # Edit contact functionality
-├── validate_input.py    # Input validation logic
-├── utils.py             # File handling utilities
-├── contacts.csv         # Contact data
+├── main_menu.py            # Main entry point of the program.
+├── validate_input.py       # Module for input validation.
+├── contact_operations.py   # Add, edit, search, remove functions.
+├── file_handler.py         # Load and save CSV file.
+├── utilities.py            # Functions for displaying tables.
+└── contacts.csv            # Storage file for contact data.
+
+------------------------------------------------------------------------------------------------
+
+Textual Design Diagram
+
+Main Menu
+   ├── Input Validation
+   │      ├── Validate Name
+   │      ├── Validate Phone
+   │      └── Validate Email
+   │
+   ├── Contact Management
+   │      ├── Add Contact
+   │      ├── Edit Contact
+   │      ├── Search Contact
+   │      └── Remove Contact
+   │
+   └── File Handling
+          ├── Load Data (from contacts.csv)
+          └── Save Data (to contacts.csv)
+
+------------------------------------------------------------------------------------------------
+
+Application Architecture Plan
+
+1. Overview
+    >> The application is a command-line-based Contact Management System.
+    >> It consists of five main modules:
+        - Main Menu:            Central navigation hub for all features.
+        - Input Validation:     Validates user inputs for consistency and correctness.
+        - Contact Management:   Handles operations like adding, editing, searching, and removing contacts.
+        - File Handling:        Reads and writes contact data to a CSV file.
+        - Utilities:            Contains reusable functions like displaying data in a table.
+
+2. Module Responsibilities
+    >> Main Menu:
+        > Displays the menu options to the user.
+        > Routes user choices to the corresponding functions (e.g., Add Contact, Edit Contact).
+        > Returns to the menu after completing operations or exits the program.
+
+    >> Input Validation:
+        > Validates data types and formats:
+            Name:       Ensures input is a string.
+            Phone:      Ensures it’s numeric and unique.
+            Email:      Ensures it contains "@" and ".".
+        > Provides feedback on invalid inputs.
+
+    >> Contact Operations:
+        > Add Contact:
+            Collects validated data and adds a new contact.
+            Checks for duplicate phone numbers before saving.
+        > Edit Contact:
+            Allows users to modify existing contact details.
+            Updates the CSV file after changes.
+        > Search Contact:
+            Searches for contacts by name, email, phone, or address.
+            Displays results in a tabular format.
+        > Remove Contact:
+            Deletes a contact by phone number.
+            Confirms deletion and updates the CSV file.
+
+    >> File Handling:
+        > Load Data:
+            Reads data from contacts.csv at program start.
+        > Save Data:
+            Writes updated contact data to contacts.csv after operations.
+
+    >> Utilities:
+        > Formats and displays contact data in a structured table.
+        > Calculates column widths dynamically for clean presentation.
+
+3. Data Flow
+    >> User Input → Validation → Contact Management Operations → File Handling (Save/Load) → Output.
+    >> Validation ensures only correct data flows into operations.
+    >> File Handling ensures persistence of data between program runs.

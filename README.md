@@ -1,12 +1,12 @@
 # Ostaad-Contact_Book
 ------------------------------------------------------------------------------------------------
    Program Description: Contact Management System
-   
+ ------------------------------------------------------------------------------------------------  
    This Python-based Contact Management System is a command-line application 
    designed to manage a user's contact list efficiently. It provides essential 
    features for adding, editing, searching, and removing contacts, while ensuring 
    data validation and persistence through file handling.
-------------------------------------------------------------------------------------------------   
+  
 Features
 
 -- Add Contacts:
@@ -75,13 +75,12 @@ How It’s Written
 
 -- Data Storage:
 
-   Contacts are stored in a CSV file in the same directory as the program.\n
+   Contacts are stored in a CSV file in the same directory as the program.
    The CSV format ensures data is easily readable and transferable.
 
 -- User Interaction:
 
    Uses a text-based menu system to guide users through operations.
-   
    Provides clear prompts and feedback to ensure smooth navigation.
 
 -- Error Handling:

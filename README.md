@@ -13,9 +13,9 @@ Features
 
    Allows users to input new contact details, including name, phone number, email, and address.
    Validates inputs to ensure data correctness:
-      - Names must be strings.
-      - Phone numbers must be numeric and unique across the contact list.
-      - Emails must contain "@" and ".".
+   - Names must be strings.
+   - Phone numbers must be numeric and unique across the contact list.
+   - Emails must contain "@" and ".".
    Saves new contacts to a CSV file for persistence.
 
 -- Edit Contacts:
@@ -67,11 +67,11 @@ How It’s Written
 
    The program is divided into multiple Python files (modules), each responsible for a specific   
    functionality:
-      - main.py: Main menu and application entry point.
-      - validate_input.py: Input validation functions.
-      - contact_operations.py: Add, edit, search, and remove contact functions.
-      - file_handler.py: Functions for loading and saving data to contacts.csv.
-      - utils.py: Utility functions like displaying contacts in a table.
+   - main.py: Main menu and application entry point.
+   - validate_input.py: Input validation functions.
+   - contact_operations.py: Add, edit, search, and remove contact functions.
+   - file_handler.py: Functions for loading and saving data to contacts.csv.
+   - utils.py: Utility functions like displaying contacts in a table.
 
 -- Data Storage:
 

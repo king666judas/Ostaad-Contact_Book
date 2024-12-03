@@ -75,8 +75,7 @@ How It’s Written
 
 -- Data Storage:
 
-   Contacts are stored in a CSV file in the same directory as the program.
-   
+   Contacts are stored in a CSV file in the same directory as the program.\n
    The CSV format ensures data is easily readable and transferable.
 
 -- User Interaction:

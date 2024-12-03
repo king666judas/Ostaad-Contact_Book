@@ -76,11 +76,13 @@ How It’s Written
 -- Data Storage:
 
    Contacts are stored in a CSV file in the same directory as the program.
+   
    The CSV format ensures data is easily readable and transferable.
 
 -- User Interaction:
 
    Uses a text-based menu system to guide users through operations.
+   
    Provides clear prompts and feedback to ensure smooth navigation.
 
 -- Error Handling:
@@ -97,7 +99,9 @@ How It’s Written
 Use Cases:
 
 -- Personal Contact Management: Keep track of family, friends, and professional contacts.
+
 -- Small Business: Maintain a contact list for customers, suppliers, and partners.
+
 -- Academic Projects: Serve as a base for learning Python programming concepts like modularity,       file handling, and validation.
 
 ------------------------------------------------------------------------------------------------
